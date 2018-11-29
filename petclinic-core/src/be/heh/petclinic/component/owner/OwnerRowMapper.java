@@ -18,9 +18,6 @@ public class OwnerRowMapper implements RowMapper<Owner> {
         owner.setCity(rs.getString("city"));
         owner.setTelephone(rs.getString("telephone"));
 
-
         return owner;
     }
-
-
 }

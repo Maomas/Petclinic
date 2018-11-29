@@ -17,7 +17,7 @@ public class Owner extends Person {
     private String address;
     private String city;
     private String telephone;
-    private Set<Pet> pets;
+    private String pets;
 
     public int getOwnerId() { return ownerId; }
 
@@ -49,44 +49,12 @@ public class Owner extends Person {
         this.telephone = telephone;
     }
 
-    protected Set<Pet> getPetsInternal() {
-        if (this.pets == null) {
-            this.pets = new HashSet<>();
-        }
+    public String getPets() {
         return this.pets;
     }
 
-    protected void setPetsInternal(Set<Pet> pets) {
+    public void setPets(String pets) {
         this.pets = pets;
-    }
-
-    public List<Pet> getPets() {
-        List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
-        PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
-        return Collections.unmodifiableList(sortedPets);
-    }
-
-    public void addPet(Pet pet) {
-        getPetsInternal().add(pet);
-        pet.setOwnerId(this.ownerId);
-    }
-
-    public Pet getPet(String name) {
-        return getPet(name, false);
-    }
-
-    public Pet getPet(String name, boolean ignoreNew) {
-        name = name.toLowerCase();
-        for (Pet pet : getPetsInternal()) {
-            if (!ignoreNew || !pet.isNew()) {
-                String compName = pet.getName();
-                compName = compName.toLowerCase();
-                if (compName.equals(name)) {
-                    return pet;
-                }
-            }
-        }
-        return null;
     }
 
     @Override
@@ -100,6 +68,7 @@ public class Owner extends Person {
                 .append("address", this.address)
                 .append("city", this.city)
                 .append("telephone", this.telephone)
+                .append("pets", this.pets)
                 .toString();
     }
 }
