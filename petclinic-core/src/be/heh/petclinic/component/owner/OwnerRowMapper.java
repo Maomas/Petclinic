@@ -17,6 +17,7 @@ public class OwnerRowMapper implements RowMapper<Owner> {
         owner.setAddress(rs.getString("address"));
         owner.setCity(rs.getString("city"));
         owner.setTelephone(rs.getString("telephone"));
+        owner.setPets(rs.getString("GROUP_CONCAT(name)"));
 
         return owner;
     }
