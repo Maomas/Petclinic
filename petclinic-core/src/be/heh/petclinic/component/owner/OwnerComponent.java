@@ -7,4 +7,5 @@ import java.util.Collection;
 public interface OwnerComponent {
 
     Collection<Owner> getOwners();
+    Collection<Owner> getOwnerByLastName(String lastName);
 }

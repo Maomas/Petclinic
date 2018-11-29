@@ -21,8 +21,13 @@ public class JdbcOwnerDao {
 
     public List<Owner> findOwnerByName(String lastName) {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.query("SELECT first_name, last_name FROM petclinic.owners WHERE owners.id = "+lastName, new OwnerRowMapper());
+        return select.query("SELECT owners.id,first_name,last_name,address,city,telephone,GROUP_CONCAT(name) FROM petclinic.owners, petclinic.pets WHERE owners.last_name = "+lastName, new OwnerRowMapper());
     }
+
+    /*public void addOwner(int id, String firstName, String lastName, String address, String city, String telephone) {
+        JdbcTemplate select = new JdbcTemplate(dataSource);
+        select.query("INSERT INTO owners VALUES ();");
+    }*/
 
     
 

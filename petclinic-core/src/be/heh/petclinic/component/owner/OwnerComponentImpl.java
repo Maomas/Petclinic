@@ -18,8 +18,13 @@ class OwnerComponentImpl implements OwnerComponent {
     @Override
     public Collection<Owner> getOwners() {
         List<Owner> owners = ownerDao.getEvents();
-
         return owners;
+    }
+
+    @Override
+    public Collection<Owner> getOwnerByLastName(String lastName) {
+        List<Owner> owner = ownerDao.findOwnerByName(lastName);
+        return owner;
     }
 
 
