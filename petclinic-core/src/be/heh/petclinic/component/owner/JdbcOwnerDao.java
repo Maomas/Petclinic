@@ -14,9 +14,9 @@ public class JdbcOwnerDao {
         this.dataSource = dataSource;
     }
 
-    public List<Owner> getEvents() {
+    public List<Owner> getOwners() {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.query("SELECT owners.id,first_name,last_name,address,city,telephone,GROUP_CONCAT(name) FROM petclinic.owners, petclinic.pets where owners.id = owner_id GROUP BY owners.id;", new OwnerRowMapper());
+        return select.query("SELECT owners.id,first_name,last_name,address,city,telephone,GROUP_CONCAT(name) FROM petclinic.owners LEFT JOIN petclinic.pets ON owners.id = owner_id GROUP BY owners.id;", new OwnerRowMapper());
     }
 
     public List<Owner> findOwnerByName(String lastName) {
@@ -24,10 +24,10 @@ public class JdbcOwnerDao {
         return select.query("SELECT owners.id,first_name,last_name,address,city,telephone,GROUP_CONCAT(name) FROM petclinic.owners, petclinic.pets WHERE owners.last_name = "+lastName, new OwnerRowMapper());
     }
 
-    /*public void addOwner(int id, String firstName, String lastName, String address, String city, String telephone) {
+    public void addOwner(int id, String firstName, String lastName, String address, String city, String telephone) {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        select.query("INSERT INTO owners VALUES ();");
-    }*/
+        select.update("INSERT INTO owners VALUES (?, ?, ?, ?, ?, ?);", id, firstName, lastName, address, city, telephone);
+    }
 
     
 

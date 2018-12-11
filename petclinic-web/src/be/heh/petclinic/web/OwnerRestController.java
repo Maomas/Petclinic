@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+
 
 import be.heh.petclinic.component.owner.OwnerComponent;
 import be.heh.petclinic.domain.Owner;
@@ -43,6 +46,18 @@ public class OwnerRestController {
 		if(owner.isEmpty()) return new ResponseEntity<Collection<Owner>>(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<Collection<Owner>>(owner,HttpStatus.OK);
 	}
+
+	@RequestMapping(value = "api/v1/owners/{id}/{firstName}/{lastName}/{address}/{city}/{telephone}", method = RequestMethod.GET)
+	@ResponseBody
+	public String addOwner(@PathVariable final int id, 
+	@PathVariable final String firstName, 
+	@PathVariable final String lastName, 
+	@PathVariable final String address, 
+	@PathVariable final String city, 
+	@PathVariable final String telephone){
+		ownerComponentImpl.addOwner(id,firstName,lastName,address,city,telephone);
+		return "L'utilisateur "+firstName+" "+lastName+" a bien été ajouté.";
+	}  
 
 	
 }

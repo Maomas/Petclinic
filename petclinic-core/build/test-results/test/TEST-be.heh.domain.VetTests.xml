@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="be.heh.domain.VetTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-11-29T10:50:40" hostname="DESKTOP-8UGA1FV" time="0.008">
+<testsuite name="be.heh.domain.VetTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-12-11T14:18:38" hostname="DESKTOP-8UGA1FV" time="0.008">
   <properties/>
   <testcase name="test_object_vet()" classname="be.heh.domain.VetTests" time="0.008"/>
   <system-out><![CDATA[]]></system-out>

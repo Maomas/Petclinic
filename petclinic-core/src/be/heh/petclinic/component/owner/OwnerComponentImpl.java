@@ -17,7 +17,7 @@ class OwnerComponentImpl implements OwnerComponent {
 
     @Override
     public Collection<Owner> getOwners() {
-        List<Owner> owners = ownerDao.getEvents();
+        List<Owner> owners = ownerDao.getOwners();
         return owners;
     }
 
@@ -25,6 +25,10 @@ class OwnerComponentImpl implements OwnerComponent {
     public Collection<Owner> getOwnerByLastName(String lastName) {
         List<Owner> owner = ownerDao.findOwnerByName(lastName);
         return owner;
+    }
+
+    public void addOwner(int id, String firstName, String lastName, String address, String city, String telephone) {
+        ownerDao.addOwner(id, firstName, lastName, address, city, telephone);
     }
 
 
