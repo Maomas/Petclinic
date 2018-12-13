@@ -47,14 +47,14 @@ public class OwnerRestController {
 		return new ResponseEntity<Collection<Owner>>(owner,HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/v1/owners/{id}/{firstName}/{lastName}/{address}/{city}/{telephone}", method = RequestMethod.GET)
+	@RequestMapping(value = "api/v1/owners/add", method = RequestMethod.GET)
 	@ResponseBody
-	public String addOwner(@PathVariable final int id, 
-	@PathVariable final String firstName, 
-	@PathVariable final String lastName, 
-	@PathVariable final String address, 
-	@PathVariable final String city, 
-	@PathVariable final String telephone){
+	public String addOwner(@RequestParam("id") int id, 
+	@RequestParam("firstName") String firstName, 
+	@RequestParam("lastName") String lastName, 
+	@RequestParam("address") String address, 
+	@RequestParam("city") String city, 
+	@RequestParam("telephone") String telephone){
 		ownerComponentImpl.addOwner(id,firstName,lastName,address,city,telephone);
 		return "L'utilisateur "+firstName+" "+lastName+" a bien été ajouté.";
 	}  
