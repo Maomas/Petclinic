@@ -18,10 +18,8 @@ class PetComponentImpl implements PetComponent {
 
     @Override
     public Collection<Pet> getPets() {
-        List<Pet> pets = petDao.getEvents();
+        List<Pet> pets = petDao.getPets();
 
         return pets;
     }
-
-
 }
