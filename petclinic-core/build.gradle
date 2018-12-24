@@ -5,17 +5,28 @@
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
 
+
 buildscript {
   repositories {
     maven {
       url "https://plugins.gradle.org/m2/"
     }
   }
+  /*
+  Déclaration des dépendances
+  Une dépendance est un élément utile et externe au projet, permettant sa construction
+  Exemple : Un fichier JAR provenant d'un autre projet
+  */
   dependencies {
+    //Ajout de la dépendance 'liquibase' au classpath
     classpath "gradle.plugin.org.liquibase:liquibase-gradle-plugin:2.0.1"
   }
 }
 
+/*
+Ajout des plugins
+Un plugin est un ensemble de tâches, comme des tâches de compilation, de mise en place des fichiers source, etc.
+*/
 apply plugin: 'java'
 apply plugin: 'org.liquibase.gradle'
 
@@ -50,8 +61,10 @@ task copyConfigXML(type: Copy) {
 
 build.finalizedBy(copyConfigXML)
 
-sourceSets {
+/*
 
+*/
+sourceSets {
   main{
       java {
           srcDirs = ['src']
@@ -74,20 +87,28 @@ test {
 
 def changeLog = "$projectDir/src/resources/db-migration/master.xml"
 
+/*
+Une tâche (task) est une suite d'instructions que Gradle effectue
+Cette tâche est nommée 'dev'
+Commande pour exécuter la tâche : gradle -q dev
+*/
 task('dev'){
+    //Les instructions se trouvent dans la déclaration 'doLast'
     doLast {
+    //Alerte l'utilisateur que la tâche s'effectue
     println "=== Executing dev ==="
     liquibase {
         activities {
          main {
                 changeLogFile changeLog
-                url 'jdbc:mysql://127.0.0.1:3306/liquibase_petclinic'
+                url 'jdbc:mysql://127.0.0.1:3306/petclinic'
                 username 'root'
-                password 'root'
+                password 'Test123*'
                 driver 'com.mysql.cj.jdbc.Driver'
             }
         }
     }    
     }  
 } 
+
 
