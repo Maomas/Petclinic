@@ -37,8 +37,8 @@ public class JdbcOwnerDao {
     }
 
     //Méthode qui permet de rajouter un propriétaire à la liste 
-    public void addOwner(int id, String firstName, String lastName, String address, String city, String telephone) {
+    public int addOwner(String firstName, String lastName, String address, String city, String telephone) {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        select.update("INSERT INTO owners VALUES (?, ?, ?, ?, ?, ?);", id, firstName, lastName, address, city, telephone);
+        return select.update("INSERT INTO owners (first_name, last_name, address, city, telephone) VALUES (?, ?, ?, ?, ?)", firstName, lastName, address, city, telephone);
     }
 }

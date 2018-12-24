@@ -29,8 +29,8 @@ class OwnerComponentImpl implements OwnerComponent {
         return owner;
     }
 
-    public void addOwner(int id, String firstName, String lastName, String address, String city, String telephone) {
-        ownerDao.addOwner(id, firstName, lastName, address, city, telephone);
+    public void addOwner(String firstName, String lastName, String address, String city, String telephone) {
+        ownerDao.addOwner(firstName, lastName, address, city, telephone);
     }
 
 

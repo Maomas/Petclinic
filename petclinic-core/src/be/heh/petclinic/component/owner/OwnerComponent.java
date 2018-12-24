@@ -8,5 +8,5 @@ public interface OwnerComponent {
 
     Collection<Owner> getOwners();
     Collection<Owner> getOwnerByLastName(String lastName);
-    void addOwner(int id, String firstName, String lastName, String address, String city, String telephone);
+    void addOwner(String firstName, String lastName, String address, String city, String telephone);
 }
