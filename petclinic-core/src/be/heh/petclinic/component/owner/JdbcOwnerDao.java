@@ -41,7 +41,4 @@ public class JdbcOwnerDao {
         JdbcTemplate select = new JdbcTemplate(dataSource);
         select.update("INSERT INTO owners VALUES (?, ?, ?, ?, ?, ?);", id, firstName, lastName, address, city, telephone);
     }
-
-    
-
 }

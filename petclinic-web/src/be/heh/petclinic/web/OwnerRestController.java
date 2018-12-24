@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
-
-
+import org.springframework.beans.factory.annotation.Autowired;
 import be.heh.petclinic.component.owner.OwnerComponent;
 import be.heh.petclinic.domain.Owner;
 
@@ -20,6 +19,7 @@ import java.util.Collection;
 @RestController
 public class OwnerRestController {
 
+	@Autowired
 	private OwnerComponent ownerComponentImpl;
     
 	@RequestMapping("api/v1/owners")
