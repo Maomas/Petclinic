@@ -33,7 +33,7 @@ public class JdbcOwnerDao {
     //Méthode qui permet de retrouver un propriétaire dans la liste avec comme critère de recherche son nom de famille
     public List<Owner> findOwnerByName(String lastName) {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.query("SELECT owners.id,first_name,last_name,address,city,telephone,GROUP_CONCAT(name) FROM petclinic.owners INNER JOIN petclinic.pets ON owners.id = owner_id && owners.last_name =" + lastName + " GROUP BY owners.id ;", new OwnerRowMapper());
+        return select.query("SELECT owners.id,first_name,last_name,address,city,telephone,GROUP_CONCAT(name) FROM petclinic.owners LEFT JOIN petclinic.pets ON owners.id = owner_id WHERE owners.last_name =" + lastName + ";", new OwnerRowMapper());
     }
 
     //Méthode qui permet de rajouter un propriétaire à la liste 

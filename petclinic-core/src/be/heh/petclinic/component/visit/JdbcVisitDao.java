@@ -14,9 +14,9 @@ public class JdbcVisitDao {
         this.dataSource = dataSource;
     }
 
-    public List<Visit> getEvents() {
+    public List<Visit> getVisits() {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.query("SELECT id, pet_id, visit_date, description FROM visit", new VisitRowMapper());
+        return select.query("visit_date, description FROM visit", new VisitRowMapper());
     }
 
 }

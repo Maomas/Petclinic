@@ -18,7 +18,7 @@ class VisitComponentImpl implements VisitComponent {
 
     @Override
     public Collection<Visit> getVisits() {
-        List<Visit> visits = visitDao.getEvents();
+        List<Visit> visits = visitDao.getVisits();
 
         return visits;
     }

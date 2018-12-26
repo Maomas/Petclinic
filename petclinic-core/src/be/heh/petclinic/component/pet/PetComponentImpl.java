@@ -1,6 +1,5 @@
 package be.heh.petclinic.component.pet;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
 
@@ -19,7 +18,6 @@ class PetComponentImpl implements PetComponent {
     @Override
     public Collection<Pet> getPets() {
         List<Pet> pets = petDao.getPets();
-
         return pets;
     }
 }

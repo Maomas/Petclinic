@@ -20,6 +20,7 @@ buildscript {
   dependencies {
     //Ajout de la dépendance 'liquibase' au classpath
     classpath "gradle.plugin.org.liquibase:liquibase-gradle-plugin:2.0.1"
+    classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '1.3.3.RELEASE'
   }
 }
 
@@ -36,7 +37,9 @@ repositories {
 
 dependencies {
 
+    
     compile("org.springframework.boot:spring-boot-starter:2.0.6.RELEASE")
+    
     // Use MySQL Connector-J
     runtime 'mysql:mysql-connector-java:8.0.12'
 
