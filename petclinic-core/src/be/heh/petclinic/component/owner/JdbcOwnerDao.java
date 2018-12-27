@@ -41,4 +41,9 @@ public class JdbcOwnerDao {
         JdbcTemplate select = new JdbcTemplate(dataSource);
         return select.update("INSERT INTO owners (first_name, last_name, address, city, telephone) VALUES (?, ?, ?, ?, ?)", firstName, lastName, address, city, telephone);
     }
+
+    public int addAnimal(String name, String birthDate, String type, int ownerId) {
+        JdbcTemplate select = new JdbcTemplate(dataSource);
+        return select.update("INSERT INTO pets (name, birth_date, type, owner_id) VALUES (?, ?, ?, ?)", name, birthDate, type, ownerId);
+    }
 }

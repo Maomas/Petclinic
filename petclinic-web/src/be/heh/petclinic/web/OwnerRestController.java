@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import be.heh.petclinic.component.owner.OwnerComponent;
 import be.heh.petclinic.domain.Owner;
+import be.heh.petclinic.domain.Animal;
 
 @RestController
 public class OwnerRestController {
@@ -45,5 +46,13 @@ public class OwnerRestController {
 		return new ResponseEntity<Owner>(HttpStatus.CREATED);
 	}  
 
+	@RequestMapping(value = "api/v1/pets/new/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Animal> addAnimal(@PathVariable("id") int id,
+	@RequestParam("name") String name,
+	@RequestParam("birthDate") String birthDate,
+	@RequestParam("type") String type){
+		ownerComponentImpl.addAnimal(name, birthDate, type, id);
+		return new ResponseEntity<Animal>(HttpStatus.CREATED);
+	}	
 	
 }

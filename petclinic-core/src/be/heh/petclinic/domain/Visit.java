@@ -8,12 +8,8 @@ public class Visit extends BaseEntity {
     private int id;
     private LocalDate date;
     private String description;
-    private Pet pet;
-    private int petId;
-
-    /*public Visit() {
-        this.date = LocalDate.now();
-    }*/
+    private Animal animal;
+    private int animalId;
 
     public LocalDate getDate() {
         return this.date;
@@ -33,20 +29,20 @@ public class Visit extends BaseEntity {
         this.description = description;
     }
 
-    public Pet getPet() {
-        return this.pet;
+    public Animal getAnimal() {
+        return this.animal;
     }
 
-    public void setPetId(int petId) {
-        this.pet.setId(petId);
+    public void setAnimalId(int petId) {
+        this.animal.setId(animalId);
     }
 
-    public int getPetId() {
-        return this.pet.getId();
+    public int getAnimalId() {
+        return this.animal.getId();
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
     }
 
 

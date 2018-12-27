@@ -11,7 +11,7 @@ public class VisitRowMapper implements RowMapper<Visit> {
     public Visit mapRow(ResultSet rs,int i) throws SQLException {
         Visit visit = new Visit();
         visit.setId(rs.getInt("id"));
-        visit.setPetId(rs.getInt("pet_id"));
+        visit.setAnimalId(rs.getInt("pet_id"));
         visit.setDate(rs.getString("visit_date"));
         visit.setDescription(rs.getString("description"));
 

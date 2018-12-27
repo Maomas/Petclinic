@@ -33,5 +33,10 @@ class OwnerComponentImpl implements OwnerComponent {
         ownerDao.addOwner(firstName, lastName, address, city, telephone);
     }
 
+    @Override
+    public void addAnimal(String name, String birthDate, String type, int ownerId) {
+        ownerDao.addAnimal(name, birthDate, type, ownerId);
+    }
+
 
 }
