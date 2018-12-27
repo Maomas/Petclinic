@@ -12,7 +12,7 @@ public class AnimalRowMapper implements RowMapper<Animal> {
         Animal animal = new Animal();
         animal.setName(rs.getString("name"));
         animal.setBirthDate(rs.getString("birth_date"));
-        animal.setType(rs.getString("type_id"));
+        animal.setType(rs.getString("type"));
         animal.setOwnerId(rs.getInt("owner_id"));
 
         return animal;

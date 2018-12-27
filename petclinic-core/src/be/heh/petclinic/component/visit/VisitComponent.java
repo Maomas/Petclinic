@@ -7,5 +7,6 @@ import java.util.Collection;
 public interface VisitComponent{
 
     Collection<Visit> getVisits();
+    void addVisit(int id, int petId, String date, String description);
 
 }

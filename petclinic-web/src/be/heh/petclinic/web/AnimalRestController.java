@@ -1,5 +1,7 @@
 package be.heh.petclinic.web;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +20,15 @@ public class AnimalRestController {
 	@Autowired
 	private AnimalComponent animalComponentImpl;
     
-	/*@RequestMapping("api/v1/pets")
-	public ResponseEntity<Collection<Pet>> getPets(){
+	@RequestMapping("api/v1/pets")
+	public ResponseEntity<Collection<Animal>> getAnimals(){
 	
-		Collection<Pet> pets = petComponentImpl.getPets();
-		if(pets.isEmpty()){
-			return new ResponseEntity<Collection<Pet>>(HttpStatus.NOT_FOUND);
+		Collection<Animal> animals = animalComponentImpl.getAnimals();
+		if(animals.isEmpty()){
+			return new ResponseEntity<Collection<Animal>>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<Collection<Pet>>(pets,HttpStatus.OK);
-	}*/
+		return new ResponseEntity<Collection<Animal>>(animals,HttpStatus.OK);
+	}
 
 	
 }

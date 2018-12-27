@@ -16,3 +16,8 @@ INSERT IGNORE INTO pets (name, birth_date, type, owner_id) VALUES ('Basil', '26-
 INSERT IGNORE INTO pets (name, birth_date, type, owner_id) VALUES ('Rosy', '14-03-2017', 'guinea pig', 3);
 INSERT IGNORE INTO pets (name, birth_date, type, owner_id) VALUES ('Jewel', '09-06-2015', 'dog', 3);
 INSERT IGNORE INTO pets (name, birth_date, type, owner_id) VALUES ('Iggy', '14-12-2017', 'rabbit', 4);
+
+INSERT IGNORE INTO visits (id, pet_id, visit_date, description) VALUES (1, 7, '2010-03-04', 'rabies shot');
+INSERT IGNORE INTO visits (id, pet_id, visit_date, description) VALUES (2, 8, '2011-03-04', 'rabies shot');
+INSERT IGNORE INTO visits (id, pet_id, visit_date, description) VALUES (3, 8, '2009-06-04', 'neutered');
+INSERT IGNORE INTO visits (id, pet_id, visit_date, description) VALUES (4, 7, '2008-09-04', 'spayed');

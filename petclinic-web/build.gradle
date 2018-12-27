@@ -36,11 +36,7 @@ ext {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
-	//compile('org.springframework.security.oauth:spring-security-oauth2')
-	//compile('org.springframework.cloud:spring-cloud-starter-security')
-	//runtime('org.springframework.boot:spring-boot-devtools')
-	//runtime('mysql:mysql-connector-java')
-
+	
 	compile project(':petclinic-core')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')

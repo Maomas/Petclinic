@@ -1,6 +1,5 @@
 package be.heh.petclinic.component.visit;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
 
@@ -19,8 +18,12 @@ class VisitComponentImpl implements VisitComponent {
     @Override
     public Collection<Visit> getVisits() {
         List<Visit> visits = visitDao.getVisits();
-
         return visits;
+    }
+
+    @Override
+    public void addVisit(int id, int petId, String date, String description) {
+        visitDao.addVisit(id, petId, date, description);
     }
 
 
