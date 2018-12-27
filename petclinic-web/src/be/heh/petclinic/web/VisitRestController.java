@@ -19,7 +19,7 @@ public class VisitRestController {
     
 	@RequestMapping("api/v1/visits")
 	public ResponseEntity<Collection<Visit>> getVisits(){
-	
+		
 		Collection<Visit> visits = visitComponentImpl.getVisits();
 		if(visits.isEmpty()){
 			return new ResponseEntity<Collection<Visit>>(HttpStatus.NOT_FOUND);
