@@ -22,8 +22,8 @@ class VisitComponentImpl implements VisitComponent {
     }
 
     @Override
-    public void addVisit(int id, int petId, String date, String description) {
-        visitDao.addVisit(id, petId, date, description);
+    public void addVisit(int petId, String date, String description) {
+        visitDao.addVisit(petId, date, description);
     }
 
 

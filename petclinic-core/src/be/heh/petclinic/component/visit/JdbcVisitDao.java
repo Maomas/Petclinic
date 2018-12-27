@@ -19,9 +19,9 @@ public class JdbcVisitDao {
         return select.query("SELECT id, pet_id, visit_date, description FROM visits", new VisitRowMapper());
     }
 
-    public int addVisit(int id, int petId, String date, String description) {
+    public int addVisit(int petId, String date, String description) {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.update("INSERT INTO visits(id, pet_id, visit_date, description) VALUES (?, ?, ?, ?)", id, petId, date, description);
+        return select.update("INSERT INTO visits(pet_id, visit_date, description) VALUES (?, ?, ?)", petId, date, description);
     }
 
 
