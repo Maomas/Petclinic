@@ -21,9 +21,9 @@ public class JdbcAnimalDao {
         return select.query("SELECT name, birth_date, type, owner_id FROM pets", new AnimalRowMapper());
     }
 
-    public int addAnimal(String name, String birthdate, String type, int ownerId) {
+    public List<Animal> getAnimalsByOwnerId(int ownerId)  {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.update("INSERT INTO pets (name, birth_date, type, owner_id) VALUES (?, ?, ?, ?)", name, birthdate, type, ownerId);
+        return select.query("SELECT name, birth_date, type, owner_id FROM pets WHERE owner_id = "+ownerId, new AnimalRowMapper());
     }
 
 }

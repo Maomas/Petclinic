@@ -22,7 +22,8 @@ class AnimalComponentImpl implements AnimalComponent {
     }
 
     @Override
-    public void addAnimal(String name, String birthdate, String type, int ownerId) {
-        animalDao.addAnimal(name, birthdate, type, ownerId);
+    public Collection<Animal> getAnimalsByOwnerId(int ownerId) {
+        List<Animal> animals = animalDao.getAnimalsByOwnerId(ownerId);
+        return animals;   
     }
 }

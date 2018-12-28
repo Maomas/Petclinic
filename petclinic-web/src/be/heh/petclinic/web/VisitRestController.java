@@ -39,5 +39,14 @@ public class VisitRestController {
 		return new ResponseEntity<Visit>(HttpStatus.CREATED);
 	}
 
+	@RequestMapping("api/v1/visits/getpets/{petId}")
+	public ResponseEntity<Collection<Visit>> getVisitsByPetId(@PathVariable("petId") int petId){
+		Collection<Visit> visits = visitComponentImpl.getVisitsByPetId(petId);
+		if(visits.isEmpty()){
+			return new ResponseEntity<Collection<Visit>>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Collection<Visit>>(visits, HttpStatus.OK);
+	}
+
 	
 }

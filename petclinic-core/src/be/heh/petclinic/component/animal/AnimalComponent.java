@@ -8,5 +8,5 @@ import java.util.Collection;
 public interface AnimalComponent {
 
     Collection<Animal> getAnimals();
-    void addAnimal(String name, String birthdate, String type, int ownerId);
+    Collection<Animal> getAnimalsByOwnerId(int ownerId);
 }

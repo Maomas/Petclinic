@@ -24,6 +24,11 @@ public class JdbcVisitDao {
         return select.update("INSERT INTO visits(pet_id, visit_date, description) VALUES (?, ?, ?)", petId, date, description);
     }
 
+    public List<Visit> getVisitsByPetId(int petId)  {
+        JdbcTemplate select = new JdbcTemplate(dataSource);
+        return select.query("SELECT id, pet_id, visit_date, description FROM visits WHERE pet_id = "+petId, new VisitRowMapper());
+    }
+
 
 
     
