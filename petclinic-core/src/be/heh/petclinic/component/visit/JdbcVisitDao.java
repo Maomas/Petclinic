@@ -1,6 +1,8 @@
 package be.heh.petclinic.component.visit;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import be.heh.petclinic.component.type.JdbcTypeDao;
 import be.heh.petclinic.domain.Visit;
 import java.util.List;
 
@@ -24,9 +26,14 @@ public class JdbcVisitDao {
         return select.update("INSERT INTO visits(pet_id, visit_date, description) VALUES (?, ?, ?)", petId, date, description);
     }
 
-    public List<Visit> getVisitsByPetId(int petId)  {
+    /*public List<Visit> getVisitsByPetId(int petId)  {
         JdbcTemplate select = new JdbcTemplate(dataSource);
         return select.query("SELECT id, pet_id, visit_date, description FROM visits WHERE pet_id = "+petId, new VisitRowMapper());
+    }*/
+
+    public List<Visit> getVisitsByPetId(int petId) {
+        JdbcTemplate select = new JdbcTemplate(dataSource);
+        return select.query("SELECT visits.id, pet_id, visit_date, description, pets.name, pets.birth_date FROM petclinic.visits LEFT JOIN petclinic.pets ON visits.pet_id = pets.id WHERE pet_id =  " + petId + ";", new VisitRowMapper());
     }
 
 
