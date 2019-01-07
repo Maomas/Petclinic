@@ -14,6 +14,8 @@ public class AnimalRowMapper implements RowMapper<Animal> {
         animal.setBirthDate(rs.getString("birth_date"));
         animal.setType(rs.getString("type"));
         animal.setOwnerId(rs.getInt("owner_id"));
+        animal.setVisitDate(rs.getString("MAX(visit_date)"));
+        animal.setVisitDescription(rs.getString("description"));
 
         return animal;
     }

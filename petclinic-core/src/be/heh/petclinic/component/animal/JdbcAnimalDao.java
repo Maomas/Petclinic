@@ -23,7 +23,6 @@ public class JdbcAnimalDao {
 
     public List<Animal> getAnimalsByOwnerId(int ownerId)  {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.query("SELECT name, birth_date, type, owner_id FROM pets WHERE owner_id = "+ownerId, new AnimalRowMapper());
-    }
+        return select.query("SELECT name, birth_date, type, owner_id, MAX(visit_date), description FROM pets LEFT JOIN visits ON pets.id = pet_id WHERE pets.owner_id = "+ownerId+" GROUP BY owner_id;", new AnimalRowMapper());    }
 
 }

@@ -8,6 +8,6 @@ public interface VisitComponent{
 
     Collection<Visit> getVisits();
     void addVisit(int petId, String date, String description);
-    Collection<Visit> getVisitsByPetId(int petId);
+    //Collection<Visit> getVisitsByPetId(int petId);
 
 }
