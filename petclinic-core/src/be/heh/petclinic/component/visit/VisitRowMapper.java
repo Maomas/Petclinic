@@ -10,13 +10,8 @@ public class VisitRowMapper implements RowMapper<Visit> {
     @Override
     public Visit mapRow(ResultSet rs,int i) throws SQLException {
         Visit visit = new Visit();
-        visit.setId(rs.getInt("id"));
-        visit.setAnimalId(rs.getInt("pet_id"));
         visit.setDate(rs.getString("visit_date"));
         visit.setDescription(rs.getString("description"));
-        /*visit.setPetName(rs.getString("pets.name"));
-        visit.setPetBirthDate(rs.getString("pets.birth_date"));*/
-
         return visit;
     }
 

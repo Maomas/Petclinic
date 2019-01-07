@@ -26,11 +26,11 @@ class VisitComponentImpl implements VisitComponent {
         visitDao.addVisit(petId, date, description);
     }
 
-    /*@Override
+    @Override
     public Collection<Visit> getVisitsByPetId(int petId) {
         List<Visit> visits = visitDao.getVisitsByPetId(petId);
         return visits;   
-    }*/
+    }
 
 
 }

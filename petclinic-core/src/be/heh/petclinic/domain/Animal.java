@@ -13,6 +13,8 @@ public class Animal extends NamedEntity {
 
     private String visitDescription;
 
+    private int id;
+
     public Integer getId() {
         return this.id;
     }

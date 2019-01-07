@@ -26,10 +26,10 @@ public class JdbcVisitDao {
         return select.update("INSERT INTO visits(pet_id, visit_date, description) VALUES (?, ?, ?)", petId, date, description);
     }
 
-    /*public List<Visit> getVisitsByPetId(int ownerId) {
+    public List<Visit> getVisitsByPetId(int ownerId) {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return select.query("SELECT visits.id, pet_id, visit_date, description, pets.name, pets.birth_date FROM petclinic.visits LEFT JOIN petclinic.pets ON visits.pet_id = (SELECT pets.id FROM pets WHERE pet_id =  " + petId + "ORDER BY visits.id LIMIT 1;", new VisitRowMapper());
-    }*/
+        return select.query("SELECT id,visit_date, description  FROM visits WHERE pet_id = "+ownerId, new VisitRowMapper());
+    }
 
 
 
